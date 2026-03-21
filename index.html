@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Денис Власенков — графический дизайнер</title>
+  <meta name="description" content="Портфолио графического дизайнера: меню, баннеры, логотипы, одежда, вывески и флаеры.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="Денис Власенков — графический дизайнер">
+  <meta property="og:description" content="Портфолио: меню, баннеры, логотипы, одежда, вывески и флаеры.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="favicon-512.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+      <style>
+    :root {
+      --bg:#0a0a0a; --line:rgba(255,255,255,.09); --text:#fff; --muted:rgba(255,255,255,.68); --soft:rgba(255,255,255,.45);
+    }
+    * { box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Inter,Arial,sans-serif }
+    a { color:inherit; text-decoration:none } img { display:block; max-width:100% }
+    .wrap { max-width:1320px; margin:0 auto; padding:0 24px; width:100% }
+    header { position:sticky; top:0; z-index:30; background:rgba(0,0,0,.78); backdrop-filter:blur(14px); border-bottom:1px solid var(--line) }
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:18px 0 }
+    .brand small { display:block; text-transform:uppercase; letter-spacing:.34em; color:var(--soft); font-size:11px }
+    .brand b { font-size:20px; text-transform:lowercase; letter-spacing:.18em; font-weight:700; color:rgba(255,255,255,.55) }
+    .menu { display:flex; gap:24px; color:var(--muted); font-size:14px }
+
+    .hero { border-bottom:1px solid var(--line); position:relative; overflow:hidden }
+    .hero:before { content:""; position:absolute; inset:0; background:
+      radial-gradient(circle at top right, rgba(242,217,78,.22), transparent 22%),
+      radial-gradient(circle at 14% 20%, rgba(255,255,255,.10), transparent 18%) }
+    .hero .wrap { position:relative; padding:48px 24px 24px }
+    .pill { display:inline-block; padding:10px 16px; border:1px solid var(--line); border-radius:999px; text-transform:uppercase; letter-spacing:.28em; font-size:11px; color:var(--muted) }
+    h1 { font-size:clamp(40px,7vw,88px); line-height:.95; margin:10px 0 32px; font-weight:900; max-width:920px }
+    .sub { max-width:760px; color:var(--muted); font-size:17px; line-height:1.7; margin-top:10px }
+    .cta-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:0 }
+    .cta, .ghost { display:inline-flex; align-items:center; justify-content:center; padding:14px 20px; border-radius:18px; font-weight:700 }
+    .cta { background:#fff; color:#000 } .ghost { border:1px solid var(--line) }
+
+    .tabs-wrap { position:sticky; top:68px; z-index:25; background:rgba(10,10,10,.94); backdrop-filter:blur(10px); border-top:1px solid var(--line); border-bottom:1px solid var(--line) }
+    .tabs { display:flex; gap:10px; overflow:auto; padding:14px 0; scrollbar-width:none }
+    .tab { background:transparent; color:var(--muted); border:1px solid var(--line); padding:12px 16px; border-radius:999px; font-weight:700; cursor:pointer; white-space:nowrap }
+    .tab.active { background:#fff; color:#000; border-color:#fff }
+
+    main { padding:0 0 70px }
+    .panel-head { display:none }
+    .eyebrow { text-transform:uppercase; letter-spacing:.32em; color:var(--soft); font-size:11px }
+    .count { color:var(--muted); font-size:14px }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px }
+    .card { background:rgba(255,255,255,.03); border:1px solid var(--line); border-radius:28px; overflow:hidden; cursor:pointer; transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease }
+    .card:hover, .card:focus { transform:translateY(-4px); border-color:rgba(255,255,255,.2); box-shadow:0 10px 30px rgba(0,0,0,.22); outline:none }
+    .thumb { aspect-ratio:4/3; background:#0f0f0f; overflow:hidden }
+    .thumb img { width:100%; height:100%; object-fit:cover }
+
+    .services { margin-top:34px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
+    .service-card { border:1px solid var(--line); border-radius:28px; padding:24px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); min-height:180px }
+    .service-card h3 { margin:0 0 12px; font-size:22px }
+    .service-card p { margin:0; color:var(--muted); line-height:1.7 }
+    .service-card .tag { display:inline-block; margin-top:18px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; color:var(--soft); font-size:12px; letter-spacing:.08em }
+
+    .about { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,.02); padding:40px; border-radius:34px; margin-top:28px }
+    .about p { margin:0; max-width:none; width:100%; color:var(--muted); line-height:1.9; font-size:18px }
+
+    .social-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px }
+    .social-link { display:inline-flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:16px; border:1px solid var(--line); font-weight:700 }
+
+    .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease }
+    .reveal.in-view { opacity:1; transform:translateY(0) }
+    .card { transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease, opacity .6s ease, transform .6s ease }
+    .card:hover .thumb img { transform:scale(1.03) }
+    .thumb img { transition:transform .35s ease }
+
+    .modal { position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; padding:24px; z-index:100 }
+    .modal.show { display:flex }
+    .modal-inner { width:min(1280px,100%); position:relative }
+    .modal-image { position:relative; background:#0b0b0b; border:1px solid var(--line); border-radius:28px; min-height:74vh; display:flex; align-items:center; justify-content:center; overflow:hidden; padding-bottom:84px }
+    .modal-image img { max-width:100%; max-height:74vh; width:auto; height:auto; object-fit:contain }
+    .modal-actions { position:absolute; left:20px; right:20px; bottom:20px; display:flex; gap:10px; justify-content:flex-start; z-index:3 }
+    .close, .arrow { position:absolute; border:1px solid var(--line); background:rgba(0,0,0,.55); color:#fff; cursor:pointer }
+    .close { top:14px; right:14px; width:44px; height:44px; border-radius:50%; font-size:20px }
+    .arrow { top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; font-size:24px }
+    .arrow.left { left:14px } .arrow.right { right:14px }
+    
+    .btn { border:1px solid var(--line); background:transparent; color:#fff; border-radius:14px; padding:12px 14px; font-weight:700; cursor:pointer }
+    .btn.primary { background:#fff; color:#000 }
+
+    footer { padding:0 0 70px }
+    .contact { border:1px solid var(--line); border-radius:30px; padding:26px 28px; background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02)) }
+    .contact .eyebrow { margin-bottom:10px }
+    .contact a { display:inline-flex; margin-top:14px; background:#fff; color:#000; padding:12px 16px; border-radius:16px; font-weight:800 }
+
+    @media (max-width:980px) {
+      .grid { grid-template-columns:repeat(2,1fr) }
+      .services { grid-template-columns:1fr 1fr }
+      .menu { display:none }
+    }
+    @media (max-width:640px) {
+      .wrap { padding:0 16px }
+      .hero .wrap { padding:32px 16px 18px }
+      .tabs-wrap { top:65px }
+      .grid { grid-template-columns:1fr; gap:16px }
+      .services { grid-template-columns:1fr }
+      .about { padding:26px }
+      .service-card { padding:20px }
+      .modal { padding:12px }
+      .modal-image { min-height:56vh }
+      .modal-image img { max-height:56vh; width:auto; height:auto }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><b>portfolio</b></div>
+      <nav class="menu"><a href="#works">Работы</a><a href="#services">Услуги</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a></nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="pill">Graphic Designer</span>
+      <h1>Мои работы</h1>
+      
+      <div class="cta-row">
+        <a class="cta" href="#works">Смотреть работы</a>
+        <a class="ghost" href="https://t.me/disiiignnn" target="_blank" rel="noopener noreferrer">@disiiignnn</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="tabs-wrap" id="works">
+    <div class="wrap">
+      <div class="tabs reveal">
+        <button class="tab active" onclick="showTab('menu', this)">Меню</button><button class="tab" onclick="showTab('logo', this)">Лого</button><button class="tab" onclick="showTab('banners', this)">Баннеры</button><button class="tab" onclick="showTab('apparel', this)">Одежда</button><button class="tab" onclick="showTab('sign', this)">Вывеска</button><button class="tab" onclick="showTab('flyer', this)">Флаер</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap">
+      
+    <section id="menu" class="panel" style="display:block">
+      <div class="panel-head">
+        <div class="eyebrow">Меню</div>
+        <div class="count">16 работ</div>
+      </div>
+      <div class="grid">
+        
+        <article class="card reveal" onclick="openModal('menu', 0)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 0)">
+          <div class="thumb"><img src="images/img_001_b4f4a4a8f2.jpg" alt="#U0430#U0432#U0430#U043a#U0430#U0434#U043e"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 1)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 1)">
+          <div class="thumb"><img src="images/img_002_e7e381edab.jpg" alt="#U0430#U043d#U0433 #U0437#U0430#U0432#U0442#U0440#U0430#U043a"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 2)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 2)">
+          <div class="thumb"><img src="images/img_003_a77a926e85.jpg" alt="#U0431#U043b#U0438#U043d#U044b"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 3)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 3)">
+          <div class="thumb"><img src="images/img_004_96c5bf735c.jpg" alt="#U0431#U043e#U0443#U043b"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 4)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 4)">
+          <div class="thumb"><img src="images/img_005_66972db586.jpg" alt="#U043a#U043b#U0430#U0431"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 5)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 5)">
+          <div class="thumb"><img src="images/img_006_054f72e2fa.jpg" alt="#U043e#U0432#U0441#U044f#U043d#U043a#U0430 #U0442#U043e#U043c #U044f#U043c"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 6)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 6)">
+          <div class="thumb"><img src="images/img_007_d0df48094f.jpg" alt="#U043e#U0432#U0441#U044f#U043d#U043a#U0438#U043d"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 7)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 7)">
+          <div class="thumb"><img src="images/img_008_aebc443e13.jpg" alt="#U0441#U0435#U043d#U0434#U0432#U0438#U0447 #U0441 #U0438#U043d#U0434 #U0438 #U0432#U0435#U0442#U0447#U0438#U043d#U043e#U0439"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 8)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 8)">
+          <div class="thumb"><img src="images/img_009_77926877e1.jpg" alt="#U0441#U0435#U043d#U0434#U0432#U0438#U0447#U0438 #U0441 #U0438#U043d#U0434, #U0442#U0443#U043d#U0446#U043e#U043c, #U043b#U043e#U0441#U043e#U0441#U0435#U043c"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 9)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 9)">
+          <div class="thumb"><img src="images/img_010_b91695659a.jpg" alt="#U0441#U044b#U0440#U043d#U0438#U043a#U0438 #U043e#U0431#U044b#U0447"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 10)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 10)">
+          <div class="thumb"><img src="images/img_011_d420e5d801.jpg" alt="#U0441#U044b#U0440#U043d#U0438#U043a#U0438 #U0441 #U043b#U043e#U0441#U043e#U0441#U0435#U043c"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 11)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 11)">
+          <div class="thumb"><img src="images/img_012_68239b9713.jpg" alt="#U0442#U0432#U043e#U0440#U043e#U0436#U043e#U043a"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 12)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 12)">
+          <div class="thumb"><img src="images/img_013_4df9b4a30a.jpg" alt="#U0442#U043e#U0441#U0442 #U0441 #U043a#U0440#U0435#U0432#U0435#U0442#U043a#U0430#U043c#U0438 #U0438 #U0441 #U043b#U043e#U0441#U043e#U0441#U0435#U043c"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 13)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 13)">
+          <div class="thumb"><img src="images/img_014_234db0646f.jpg" alt="#U0442,#U0438,#U043b"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 14)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 14)">
+          <div class="thumb"><img src="images/img_015_650ff1e667.jpg" alt="#U0446#U0435#U0437#U0430#U0440#U043811"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('menu', 15)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 15)">
+          <div class="thumb"><img src="images/img_016_3524717e8f.jpg" alt="#U0446#U0435#U0437#U0440#U0438"></div>
+        </article>
+        <article class="card reveal" onclick="openModal('menu', 32)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 32)">
+          <div class="thumb"><img src="images/img_017_d4fdbbbb55.jpg" alt="" data-title=""></div>
+        </article>
+
+        <article class="card reveal" onclick="openModal('menu', 33)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 33)">
+          <div class="thumb"><img src="images/img_018_ef6968f037.jpg" alt="" data-title=""></div>
+        </article>
+
+        <article class="card reveal" onclick="openModal('menu', 34)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('menu', 34)">
+          <div class="thumb"><img src="images/img_019_2c725eeca1.jpg" alt="" data-title=""></div>
+        </article>
+
+        
+      </div>
+    </section>
+    
+    <section id="logo" class="panel" style="display:none">
+      <div class="panel-head">
+        <div class="eyebrow">Лого</div>
+        <div class="count">4 работ</div>
+      </div>
+      <div class="grid">
+        
+        <article class="card reveal" onclick="openModal('logo', 0)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('logo', 0)">
+          <div class="thumb"><img src="images/img_020_45c3a4323e.jpg" alt="photo 2025 02 17 22 04 41 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('logo', 1)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('logo', 1)">
+          <div class="thumb"><img src="images/img_021_8bb2d2654f.jpg" alt="photo 2025 02 17 22 04 42 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('logo', 2)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('logo', 2)">
+          <div class="thumb"><img src="images/img_022_dee4ed622e.jpg" alt="photo 2025 04 20 17 33 24"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('logo', 3)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('logo', 3)">
+          <div class="thumb"><img src="images/img_023_c839d2d9f3.jpg" alt="photo 2025 04 21 22 48 15"></div>
+        </article>
+        
+      </div>
+    </section>
+    
+    <section id="banners" class="panel" style="display:none">
+      <div class="panel-head">
+        <div class="eyebrow">Баннеры</div>
+        <div class="count">10 работ</div>
+      </div>
+      <div class="grid">
+        
+        <article class="card reveal" onclick="openModal('banners', 0)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 0)">
+          <div class="thumb"><img src="images/img_024_846e6d05e6.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 1)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 1)">
+          <div class="thumb"><img src="images/img_025_e69eed4c87.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 2)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 2)">
+          <div class="thumb"><img src="images/img_024_846e6d05e6.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 3)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 3)">
+          <div class="thumb"><img src="images/img_025_e69eed4c87.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 4)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 4)">
+          <div class="thumb"><img src="images/img_028_c4929e1c21.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 5)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 5)">
+          <div class="thumb"><img src="images/img_029_b691a0a019.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 6)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 6)">
+          <div class="thumb"><img src="images/img_028_c4929e1c21.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 7)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 7)">
+          <div class="thumb"><img src="images/img_029_b691a0a019.jpg" alt="#U0444#U044b#U0432#U0430#U0444#U044b#U0432#U0430 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 8)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 8)">
+          <div class="thumb"><img src="images/img_032_afa8465eec.jpg" alt="#U0447#U0447 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('banners', 9)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('banners', 9)">
+          <div class="thumb"><img src="images/img_033_8748ce17a3.jpg" alt="a7070d94e06d6f5a27967819cbc66b14009cfb3f 1740402135"></div>
+        </article>
+        
+      </div>
+    </section>
+    
+    <section id="apparel" class="panel" style="display:none">
+      <div class="panel-head">
+        <div class="eyebrow">Одежда</div>
+        <div class="count">6 работ</div>
+      </div>
+      <div class="grid">
+        
+        <article class="card reveal" onclick="openModal('apparel', 0)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('apparel', 0)">
+          <div class="thumb"><img src="images/img_034_f6789bd765.jpg" alt="#U044b#U0432#U0430#U044b#U0432#U0430#U044b#U0432#U0430#U044b#U0432#U0430"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('apparel', 1)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('apparel', 1)">
+          <div class="thumb"><img src="images/img_035_85a91b1af6.jpg" alt="#U044f#U0447#U0441#U0444#U044f#U0441#U044f#U0447#U0441"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('apparel', 2)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('apparel', 2)">
+          <div class="thumb"><img src="images/img_036_65862c949c.jpg" alt="photo 2025 02 02 20 11 55 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('apparel', 3)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('apparel', 3)">
+          <div class="thumb"><img src="images/img_037_fc1b0811d6.jpg" alt="photo 2025 02 02 21 07 37 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('apparel', 4)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('apparel', 4)">
+          <div class="thumb"><img src="images/img_038_71ce037ab7.jpg" alt="photo 2025 06 18 12 46 21 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('apparel', 5)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('apparel', 5)">
+          <div class="thumb"><img src="images/img_039_605e170653.jpg" alt="photo 2025 06 18 13 56 56"></div>
+        </article>
+        
+      </div>
+    </section>
+    
+    <section id="sign" class="panel" style="display:none">
+      <div class="panel-head">
+        <div class="eyebrow">Вывеска</div>
+        <div class="count">3 работ</div>
+      </div>
+      <div class="grid">
+        
+        <article class="card reveal" onclick="openModal('sign', 0)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('sign', 0)">
+          <div class="thumb"><img src="images/img_040_93125aac30.jpg" alt="photo 2025 02 17 21 55 49 (2) 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('sign', 1)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('sign', 1)">
+          <div class="thumb"><img src="images/img_041_d4a8987b47.jpg" alt="photo 2025 02 17 21 55 49"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('sign', 2)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('sign', 2)">
+          <div class="thumb"><img src="images/img_042_0011cf18ec.jpg" alt="photo 2025 02 17 21 55 50 20.03.2026"></div>
+        </article>
+        
+      </div>
+    </section>
+    
+    <section id="flyer" class="panel" style="display:none">
+      <div class="panel-head">
+        <div class="eyebrow">Флаер</div>
+        <div class="count">6 работ</div>
+      </div>
+      <div class="grid">
+        
+        <article class="card reveal" onclick="openModal('flyer', 0)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('flyer', 0)">
+          <div class="thumb"><img src="images/img_043_e05c45fd04.jpg" alt="#U0437#U0430#U0432#U0442#U0440#U0430#U043a 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('flyer', 1)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('flyer', 1)">
+          <div class="thumb"><img src="images/img_044_2da92693b5.jpg" alt="#U0440#U043e#U0437#U043c#U0430#U0440#U0438#U043d"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('flyer', 2)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('flyer', 2)">
+          <div class="thumb"><img src="images/img_045_cf21d29ffb.jpg" alt="#U0441#U0435#U043d#U0434#U0432#U0438#U0447#U0438"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('flyer', 3)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('flyer', 3)">
+          <div class="thumb"><img src="images/img_045_cf21d29ffb.jpg" alt="#U0441#U0435#U043d#U0434#U0432#U0438#U0447#U0438 20.03.2026"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('flyer', 4)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('flyer', 4)">
+          <div class="thumb"><img src="images/img_047_e29321d86e.jpg" alt="#U0441#U043e#U0443#U0441#U044b #U0442#U0432#U043e#U0440#U043e#U0433"></div>
+        </article>
+        
+        <article class="card reveal" onclick="openModal('flyer', 5)" tabindex="0" onkeydown="if(event.key==='Enter')openModal('flyer', 5)">
+          <div class="thumb"><img src="images/img_048_bd6b64e3dd.jpg" alt="#U0441#U0443#U043f#U044b"></div>
+        </article>
+        
+      </div>
+    </section>
+    
+
+
+      <section id="services" class="reveal" style="margin-top:34px">
+        <div class="eyebrow">Services</div>
+        <div style="font-size:34px;font-weight:900;margin-top:10px">Услуги</div>
+        <div class="services">
+          <article class="service-card reveal">
+            <h3>Меню и полиграфия</h3>
+            <p>Оформление меню, флаеров и печатных материалов с акцентом на стиль, структуру и удобную подачу информации.</p>
+            <span class="tag">Menu / Print</span>
+          </article>
+          <article class="service-card reveal">
+            <h3>Баннеры и реклама</h3>
+            <p>Дизайн баннеров и рекламных макетов, которые цепляют внимание и помогают бренду выглядеть сильнее.</p>
+            <span class="tag">Banners / Ads</span>
+          </article>
+          <article class="service-card reveal">
+            <h3>Одежда и мерч</h3>
+            <p>Визуалы для футболок, худи и другого мерча — от идеи до готового макета под производство.</p>
+            <span class="tag">Apparel / Merch</span>
+          </article>
+          <article class="service-card reveal">
+            <h3>Монтаж видео</h3>
+            <p>Делаю динамичный и аккуратный монтаж для reels, рекламы, контента и визуальной подачи бренда.</p>
+            <span class="tag">Video Editing</span>
+          </article>
+          <article class="service-card reveal">
+            <h3>Сайты</h3>
+            <p>Создаю стильные и удобные сайты-портфолио, промо-страницы и простые сайты для брендов и проектов.</p>
+            <span class="tag">Web Design</span>
+          </article>
+          <article class="service-card reveal">
+            <h3>Логотипы и айдентика</h3>
+            <p>Создание фирменного визуального образа: логотипы, стилистика и решения, которые делают бренд узнаваемым.</p>
+            <span class="tag">Logo / Identity</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="about reveal">
+        <div class="eyebrow">About</div>
+        <div style="height:14px"></div>
+        <p>Я графический дизайнер, также занимаюсь монтажом и созданием сайтов. Создаю современный и цепляющий визуал для брендов, заведений и рекламы: работаю с меню, баннерами, логотипами, одеждой, вывесками, флаерами, видео и веб-сайтами. Для меня важно, чтобы каждая работа была не только красивой, но и запоминающейся.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <section class="contact reveal">
+        <div class="eyebrow">Contact</div>
+        <div style="font-size:30px;font-weight:800">Денис Власенков</div>
+        <div style="color:rgba(255,255,255,.68);margin-top:10px;max-width:680px;line-height:1.7">Открыт к новым проектам и сотрудничеству. Напиши мне в Telegram или Instagram.</div>
+        <div class="social-row">
+          <a href="https://t.me/disiiignnn" target="_blank" rel="noopener noreferrer">@disiiignnn</a>
+          <a class="social-link" href="https://instagram.com/leyll_f" target="_blank" rel="noopener noreferrer">@leyll_f</a>
+        </div>
+      </section>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-inner">
+      <div class="modal-image">
+        <button class="close" onclick="closeModal()">×</button>
+        <button class="arrow left" onclick="prevItem()">‹</button>
+        <img id="modalImg" src="" alt="">
+        <button class="arrow right" onclick="nextItem()">›</button>
+      </div>
+        <div class="modal-actions">
+          <button class="btn" onclick="prevItem()">Назад</button>
+          <button class="btn" onclick="nextItem()">Вперед</button>
+          <button class="btn primary" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    const galleries = {"menu": [{"title": "", "src": "images/img_001_b4f4a4a8f2.jpg"}, {"title": "", "src": "images/img_002_e7e381edab.jpg"}, {"title": "", "src": "images/img_003_a77a926e85.jpg"}, {"title": "", "src": "images/img_004_96c5bf735c.jpg"}, {"title": "", "src": "images/img_005_66972db586.jpg"}, {"title": "", "src": "images/img_006_054f72e2fa.jpg"}, {"title": "", "src": "images/img_007_d0df48094f.jpg"}, {"title": "", "src": "images/img_008_aebc443e13.jpg"}, {"title": "", "src": "images/img_009_77926877e1.jpg"}, {"title": "", "src": "images/img_010_b91695659a.jpg"}, {"title": "", "src": "images/img_011_d420e5d801.jpg"}, {"title": "", "src": "images/img_012_68239b9713.jpg"}, {"title": "", "src": "images/img_013_4df9b4a30a.jpg"}, {"title": "", "src": "images/img_014_234db0646f.jpg"}, {"title": "", "src": "images/img_015_650ff1e667.jpg"}, {"title": "", "src": "images/img_016_3524717e8f.jpg"}, {"title": "", "src": "images/img_017_d4fdbbbb55.jpg"}, {"title": "", "src": "images/img_018_ef6968f037.jpg"}, {"title": "", "src": "images/img_019_2c725eeca1.jpg"}], "logo": [{"title": "", "src": "images/img_020_45c3a4323e.jpg"}, {"title": "", "src": "images/img_021_8bb2d2654f.jpg"}, {"title": "", "src": "images/img_022_dee4ed622e.jpg"}, {"title": "", "src": "images/img_023_c839d2d9f3.jpg"}], "banners": [{"title": "", "src": "images/img_024_846e6d05e6.jpg"}, {"title": "", "src": "images/img_025_e69eed4c87.jpg"}, {"title": "", "src": "images/img_024_846e6d05e6.jpg"}, {"title": "", "src": "images/img_025_e69eed4c87.jpg"}, {"title": "", "src": "images/img_028_c4929e1c21.jpg"}, {"title": "", "src": "images/img_029_b691a0a019.jpg"}, {"title": "", "src": "images/img_028_c4929e1c21.jpg"}, {"title": "", "src": "images/img_029_b691a0a019.jpg"}, {"title": "", "src": "images/img_032_afa8465eec.jpg"}, {"title": "", "src": "images/img_033_8748ce17a3.jpg"}], "apparel": [{"title": "", "src": "images/img_034_f6789bd765.jpg"}, {"title": "", "src": "images/img_035_85a91b1af6.jpg"}, {"title": "", "src": "images/img_036_65862c949c.jpg"}, {"title": "", "src": "images/img_037_fc1b0811d6.jpg"}, {"title": "", "src": "images/img_038_71ce037ab7.jpg"}, {"title": "", "src": "images/img_039_605e170653.jpg"}], "sign": [{"title": "", "src": "images/img_040_93125aac30.jpg"}, {"title": "", "src": "images/img_041_d4a8987b47.jpg"}, {"title": "", "src": "images/img_042_0011cf18ec.jpg"}], "flyer": [{"title": "", "src": "images/img_043_e05c45fd04.jpg"}, {"title": "", "src": "images/img_044_2da92693b5.jpg"}, {"title": "", "src": "images/img_045_cf21d29ffb.jpg"}, {"title": "", "src": "images/img_045_cf21d29ffb.jpg"}, {"title": "", "src": "images/img_047_e29321d86e.jpg"}, {"title": "", "src": "images/img_048_bd6b64e3dd.jpg"}]};
+    let currentTab = 'menu';
+    let currentIndex = 0;
+
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+
+    function showTab(id, btn) {
+      currentTab = id;
+      document.querySelectorAll('.panel').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function decodeEscapedUnicode(str) {
+      if (!str) return '';
+      return str.replace(/#U([0-9A-Fa-f]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16))).replace(/\s+/g, ' ').trim();
+    }
+
+    function getCardTitleFromTab(tabId, index) {
+      const panel = document.getElementById(tabId);
+      if (!panel) return '';
+      const img = panel.querySelectorAll('.card img')[index];
+      if (!img) return '';
+      return decodeEscapedUnicode(img.getAttribute('data-title') || img.getAttribute('alt') || '');
+    }
+
+    function renderModal() {
+      const item = galleries[currentTab][currentIndex];
+      modalImg.src = item.src;
+      modalImg.alt = '';
+    }
+
+    function openModal(tabId, index) {
+      currentTab = tabId;
+      currentIndex = index;
+      renderModal();
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function nextItem() {
+      currentIndex = (currentIndex + 1) % galleries[currentTab].length;
+      renderModal();
+    }
+
+    function prevItem() {
+      currentIndex = (currentIndex - 1 + galleries[currentTab].length) % galleries[currentTab].length;
+      renderModal();
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('show')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') nextItem();
+      if (e.key === 'ArrowLeft') prevItem();
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.card img').forEach(img => {
+        img.removeAttribute('alt');
+        img.removeAttribute('data-title');
+      });
+    });
+      const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
